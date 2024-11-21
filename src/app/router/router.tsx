@@ -3,6 +3,7 @@ import { ROUTES } from '@/app/router/config.ts';
 import { ChunkArrayPage } from '@/pages/chunk/ChunkArrayPage.tsx';
 import { FizzBuzzPage } from '@/pages/fizzbuzz/FizzBuzzPage.tsx';
 import { PalindromePage } from '@/pages/palindrome/PalindromePage.tsx';
+import { PicturesPage } from '@/pages/pictures/PicturesPage.tsx';
 import { TodoListPage } from '@/pages/todo-list/TodoListPage.tsx';
 import { UsersPage } from '@/pages/users/UsersPage.tsx';
 import { createBrowserRouter } from 'react-router-dom';
@@ -37,6 +38,10 @@ export const router = createBrowserRouter(
 				{
 					path: ROUTES.USERS,
 					element: <UsersPage />,
+				},
+				{
+					path: ROUTES.PICTURES,
+					element: <PicturesPage />,
 				},
 			],
 		}

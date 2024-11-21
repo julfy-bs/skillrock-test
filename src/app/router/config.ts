@@ -10,4 +10,5 @@ export const ROUTES: RoutesConfig = {
   },
   TODO: "todo-list",
   USERS: "users",
+  PICTURES: "pictures",
 };

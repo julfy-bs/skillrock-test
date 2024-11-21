@@ -8,4 +8,5 @@ export type RoutesConfig = {
 	},
 	TODO: string;
 	USERS: string;
+	PICTURES: string;
 }

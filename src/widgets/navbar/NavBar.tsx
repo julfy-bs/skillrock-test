@@ -148,6 +148,33 @@ export function NavBar(): ReactElement {
 								{ navigation.users.icon } { navigation.users.title }
 							</ListItemButton>
 						</NavLink>
+						<NavLink
+							style={ ({ isActive, isTransitioning }) => {
+								return {
+									pointerEvents: isActive ? 'none' : 'auto',
+									opacity: isActive ? '0.6' : '1',
+									viewTransitionName: isTransitioning ? 'slide' : '',
+									width: '100%',
+									textDecoration: 'none',
+									color: 'inherit',
+									display: 'flex',
+									alignItems: 'center',
+									gap: '16px',
+								};
+							} }
+							to={ navigation.pictures.route }
+						>
+							<ListItemButton
+								sx={ {
+									width: '100%',
+									display: 'flex',
+									alignItems: 'center',
+									gap: '16px',
+								} }
+							>
+								{ navigation.pictures.icon } { navigation.pictures.title }
+							</ListItemButton>
+						</NavLink>
 					</Box>
 				</Drawer>
 			</Box>
