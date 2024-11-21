@@ -23,6 +23,7 @@ export function ContentLayout({
 					alignItems: 'center',
 					width: '100%',
 					maxWidth: '900px',
+					padding: '32px 16px',
 				} }
 			>
 				<Typography
