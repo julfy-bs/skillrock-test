@@ -1,15 +1,14 @@
 import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
 import {
-  ChunkArrayComponent,
+	ChunkArrayComponent,
 } from '@/features/chunk-array/ChunkArrayComponent.tsx';
 import { Button, FormControl, Input } from '@mui/joy';
 import {
-  ChangeEvent,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
+	ChangeEvent,
+	ReactElement,
+	useCallback,
+	useMemo,
+	useState,
 } from 'react';
 import { content } from './content';
 
@@ -38,10 +37,6 @@ export function ChunkArrayPage({}: ChunkArrayPageProps): ReactElement {
 		);
 		setArray(generatedArray);
 	}, []);
-	
-	useEffect(() => {
-		console.log(array);
-	}, [array?.length]);
 	
 	return (
 		<ContentLayout
