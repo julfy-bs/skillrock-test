@@ -1,4 +1,4 @@
-import { RoutesConfig } from "./types.ts";
+import { RoutesConfig } from './types.ts';
 
 export const ROUTES: RoutesConfig = {
   HOME: "/",
@@ -9,4 +9,5 @@ export const ROUTES: RoutesConfig = {
     CHUNK: "chunk-array",
   },
   TODO: "todo-list",
+  USERS: "users",
 };

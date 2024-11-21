@@ -1,7 +1,7 @@
 import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
 import { Task, TaskFilter } from '@/shared/types/task';
 import { TodoForm } from '@/widgets/todo-form/TodoForm.tsx';
-import { TodoTable } from '@/widgets/todo-table/TodoTable.tsx';
+import { TodoTable } from '@/widgets/table/TodoTable.tsx';
 import { Box } from '@mui/material';
 import React, {
 	ChangeEvent,

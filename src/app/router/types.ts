@@ -7,4 +7,5 @@ export type RoutesConfig = {
 		CHUNK: string;
 	},
 	TODO: string;
+	USERS: string;
 }

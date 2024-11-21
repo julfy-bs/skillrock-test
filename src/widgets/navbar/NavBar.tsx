@@ -120,13 +120,34 @@ export function NavBar(): ReactElement {
 								{ navigation.todo.icon } { navigation.todo.title }
 							</ListItemButton>
 						</NavLink>
-						<List>
-							{ ['All mail', 'Trash', 'Spam'].map((text) => (
-								<ListItem key={ text }>
-									<ListItemButton>{ text }</ListItemButton>
-								</ListItem>
-							)) }
-						</List>
+						<Divider />
+						<NavLink
+							style={ ({ isActive, isTransitioning }) => {
+								return {
+									pointerEvents: isActive ? 'none' : 'auto',
+									opacity: isActive ? '0.6' : '1',
+									viewTransitionName: isTransitioning ? 'slide' : '',
+									width: '100%',
+									textDecoration: 'none',
+									color: 'inherit',
+									display: 'flex',
+									alignItems: 'center',
+									gap: '16px',
+								};
+							} }
+							to={ navigation.users.route }
+						>
+							<ListItemButton
+								sx={ {
+									width: '100%',
+									display: 'flex',
+									alignItems: 'center',
+									gap: '16px',
+								} }
+							>
+								{ navigation.users.icon } { navigation.users.title }
+							</ListItemButton>
+						</NavLink>
 					</Box>
 				</Drawer>
 			</Box>

@@ -2,6 +2,7 @@ import { ROUTES } from '@/app/router/config.ts';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import LayersIcon from '@mui/icons-material/Layers';
+import PersonIcon from '@mui/icons-material/Person';
 import { ReactNode } from 'react';
 
 type NavigationElement = {
@@ -17,6 +18,7 @@ export type Navigation = {
 		items: NavigationElement[];
 	};
 	todo: NavigationElement;
+	users: NavigationElement;
 }
 
 export const navigation: Navigation = {
@@ -45,5 +47,10 @@ export const navigation: Navigation = {
 		route: ROUTES.TODO,
 		title: 'Туду лист',
 		icon: <LayersIcon />,
+	},
+	users: {
+		route: ROUTES.USERS,
+		title: 'Список пользователей',
+		icon: <PersonIcon />,
 	},
 };
