@@ -1,4 +1,4 @@
-import { Palindrome } from "@/features/palindrome/Palindrome.tsx";
+import { PalindromeComponent } from "@/features/palindrome/PalindromeComponent.tsx";
 import { CssVarsProvider, FormControl, FormLabel, Input } from "@mui/joy";
 import { ChangeEvent, ReactElement, useCallback, useState } from "react";
 
@@ -33,7 +33,7 @@ export function PalindromePage({}: PalindromePageProps): ReactElement {
           </FormLabel>
         </FormControl>
       </CssVarsProvider>
-      <Palindrome isDirty={isDirty} stringToCheck={input} />
+      <PalindromeComponent isDirty={isDirty} stringToCheck={input} />
     </>
   );
 }

@@ -9,7 +9,7 @@ type PalindromeProps = {
   isDirty: boolean;
 };
 
-export function Palindrome({
+export function PalindromeComponent({
   stringToCheck,
   isDirty,
 }: PalindromeProps): ReactElement {
