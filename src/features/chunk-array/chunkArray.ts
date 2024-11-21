@@ -9,30 +9,23 @@
  *   размера.
  */
 
-function chunkArray<T>(array: T[], size: number): T[] {
-	if (array.length === 0) {
-		return array;
-	}
-	
-	if (size <= 1) {
-		return array;
-	}
-	
-	if (Math.floor(size) !== +size) {
-		throw SyntaxError(`параметр size - должен быть натуральным числом больше 1, сейчас size не натуральное число.`);
-	}
-	
-	let currentIndex = 0;
-	let resultArray: T[] = [];
-	array.forEach((_, index) => {
-		if (index === currentIndex) {
-			resultArray.push(array.slice(index, index + size) as T);
-			currentIndex += size;
-		}
-	});
-	
-	return resultArray;
-}
+export function chunkArray<T>(array: T[], size: number): T[][] | T[] {
+  if (array.length === 0) {
+    return array;
+  }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-	, 2.1)); // [[1, 2], [3, 4], [5, 6],[7, 8]]
+  if (size <= 1) {
+    return array;
+  }
+
+  let currentIndex = 0;
+  let resultArray: T[] = [];
+  array.forEach((_, index) => {
+    if (index === currentIndex) {
+      resultArray.push(array.slice(index, index + size) as T);
+      currentIndex += size;
+    }
+  });
+
+  return resultArray;
+}

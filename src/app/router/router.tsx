@@ -1,6 +1,7 @@
 import { AlgorithmsLayout } from "@/app/layouts/AlgorithmsLayout.tsx";
 import { DefaultLayout } from "@/app/layouts/DefaultLayout.tsx";
 import { ROUTES } from "@/app/router/config.ts";
+import { ChunkArrayPage } from "@/pages/chunk/ChunkArrayPage.tsx";
 import { FizzBuzzPage } from "@/pages/fizzbuzz/FizzBuzzPage.tsx";
 import { PalindromePage } from "@/pages/palindrome/PalindromePage.tsx";
 import { createBrowserRouter } from "react-router-dom";
@@ -24,7 +25,7 @@ export const router = createBrowserRouter([
           },
           {
             path: ROUTES.ALGORITHMS.CHUNK,
-            element: <h1>chunk</h1>,
+            element: <ChunkArrayPage />,
           },
         ],
       },

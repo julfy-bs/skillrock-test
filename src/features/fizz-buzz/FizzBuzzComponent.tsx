@@ -21,7 +21,6 @@ export function FizzBuzzComponent({
       {+stringifiedNumber && isDirty && elements.length > 0 && (
         <Stack
           direction="row"
-          spacing={1}
           sx={{
             display: "grid",
             gridTemplateColumns: "repeat(10, 1fr)",
