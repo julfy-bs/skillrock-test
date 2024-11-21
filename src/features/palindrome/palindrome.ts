@@ -16,18 +16,14 @@
  * // returns false;
  * isPalindrome('Привет');
  */
-function isPalindrome(str: string) {
-	if (!str || str.length === 0) {
-		return false;
-	}
-	
-	const regex: RegExp = /([~`!@#$%^&*(){}\[\];:"'<,.>?\/\\|\-_+=])|\s+/g;
-	const strWithoutPunctuation: string = str.toLowerCase()
-		.replace(regex, '');
-	return strWithoutPunctuation === strWithoutPunctuation.split('')
-		.reverse()
-		.join('');
-}
+export function isPalindrome(str: string) {
+  if (!str || str.length === 0) {
+    return false;
+  }
 
-console.log(isPalindrome('А роза упала на лапу Азора'));
-console.log(isPalindrome('Привет'));
+  const regex: RegExp = /([~`!@#$%^&*(){}\[\];:"'<,.>?\/\\|\-_+=])|\s+/g;
+  const strWithoutPunctuation: string = str.toLowerCase().replace(regex, "");
+  return (
+    strWithoutPunctuation === strWithoutPunctuation.split("").reverse().join("")
+  );
+}
