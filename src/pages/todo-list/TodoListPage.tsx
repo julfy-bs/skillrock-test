@@ -1,14 +1,7 @@
 import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import {
-	Button,
-	Checkbox,
-	FormControl,
-	Input,
-	Option,
-	Select,
-	Sheet,
-	Table,
-} from '@mui/joy';
+import { Task, TaskFilter } from '@/shared/types/task';
+import { TodoForm } from '@/widgets/todo-form/TodoForm.tsx';
+import { TodoTable } from '@/widgets/todo-table/TodoTable.tsx';
 import { Box } from '@mui/material';
 import React, {
 	ChangeEvent,
@@ -20,11 +13,8 @@ import React, {
 } from 'react';
 import { v4 as uuid } from 'uuid';
 import { content } from './content';
-import { Task, TaskFilter } from './types';
 
-type TodoListPageProps = {};
-
-export function TodoListPage({}: TodoListPageProps): ReactElement {
+export function TodoListPage(): ReactElement {
 	const [input, setInput] = useState<string>('');
 	const [checked, setChecked] = useState<boolean>(false);
 	const [tasks, setTasks] = useState<Task[]>([]);
@@ -112,184 +102,29 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 				sx={ {
 					display: 'flex',
 					flexDirection: 'column',
-					
 					gap: '16px',
 					justifyContent: 'center',
 					alignItems: 'center',
 					width: '100%',
 				} }
 			>
-				<Box
-					sx={ {
-						display: 'flex',
-						alignItems: 'center',
-						gap: '16px',
-						width: '100%',
-					} }
-					component={ 'form' }
-					onSubmit={ (e) => handleSubmit(e) }
-				>
-					<FormControl
-						sx={ {
-							width: '100%',
-							flexShrink: '2',
-						} }
-					>
-						<Input
-							sx={ {
-								width: '100%',
-							} }
-							size='sm'
-							variant='soft'
-							name='size'
-							placeholder={ content.placeholder }
-							type='text'
-							value={ input }
-							autoComplete={ 'off' }
-							onChange={ (e) => handleInputChange(e) }
-						/>
-					</FormControl>
-					<FormControl
-						sx={ {
-							flexShrink: '5',
-							display: 'flex',
-							gap: '16px',
-							alignItems: 'center',
-							width: '100%',
-						} }
-					>
-						<Checkbox
-							sx={ {
-								alignSelf: 'center',
-								width: '100%',
-							} }
-							size='sm'
-							label={ 'Выполнено' }
-							name={ 'done' }
-							checked={ checked }
-							onChange={ (e) => handleCheckChange(e) }
-						/>
-					</FormControl>
-					<Button
-						sx={ {
-							flexShrink: '4',
-							maxWidth: '300px',
-							width: '100%',
-						} }
-						type={ 'submit' }
-						size='sm'
-						disabled={ input.length <= 0 }
-					>
-						Создать задачу
-					</Button>
-					<Select
-						onChange={ handleFilterTasks }
-						sx={ {
-							flexShrink: '4',
-							maxWidth: '300px',
-							width: '100%',
-						} }
-						value={ filter }
-					>
-						<Option value={ TaskFilter.all }>Все</Option>
-						<Option value={ TaskFilter.inProgress }>В процессе</Option>
-						<Option value={ TaskFilter.finished }>Завершенные</Option>
-					</Select>
-				</Box>
-				
+				<TodoForm
+					handleSubmit={ handleSubmit }
+					handleFilterTasks={ handleFilterTasks }
+					checked={ checked }
+					input={ input }
+					filter={ filter }
+					handleInputChange={ handleInputChange }
+					handleCheckChange={ handleCheckChange }
+					inputPlaceholder={content.placeholder}
+				/>
 				{
 					filteredTasks && filteredTasks.length > 0 && (
-						<Sheet>
-							<Table
-								borderAxis='both'
-								color='neutral'
-								stickyFooter={ false }
-								stickyHeader={ false }
-								variant='soft'
-							>
-								<thead>
-								<tr>
-									<th
-										style={ {
-											maxWidth: '5%',
-											width: '100%',
-										} }
-									>№
-									</th>
-									<th>Название задачи</th>
-									<th
-										style={ {
-											maxWidth: '15%',
-											width: '100%',
-										} }
-									>Статус
-									</th>
-									<th
-										style={ {
-											maxWidth: '20%',
-											width: '100%',
-										} }
-									>Управление
-									</th>
-								</tr>
-								</thead>
-								<tbody>
-								{
-									filteredTasks.map((task, index) => (
-										<tr
-											key={ task.id }
-											style={ {
-												textDecoration: task.finished ? 'line-through' : 'none',
-											} }
-										>
-											<td>{ index + 1 }</td>
-											<td
-												style={ {
-													textAlign: 'left',
-												} }
-											>{ task.title }</td>
-											<td>
-												<FormControl
-													sx={ {
-														flexShrink: '5',
-														display: 'flex',
-														gap: '16px',
-														alignItems: 'center',
-														width: '100%',
-													} }
-												>
-													<Checkbox
-														sx={ {
-															width: '100%',
-														} }
-														size='sm'
-														label={ task.finished ? 'Выполнена' : 'В процессе' }
-														name={ 'done' }
-														checked={ task.finished }
-														onChange={ () => editTaskStatus(task.id) }
-													/>
-												</FormControl>
-											</td>
-											<td>
-												<Button
-													sx={ {
-														width: '100%',
-													} }
-													size='sm'
-													disabled={ !task.id }
-													variant='plain'
-													color='danger'
-													onClick={ () => handleDeleteTask(task.id) }
-												>
-													Удалить
-												</Button>
-											</td>
-										</tr>
-									))
-								}
-								</tbody>
-							</Table>
-						</Sheet>
+						<TodoTable
+							tasks={ filteredTasks }
+							editTaskStatus={ editTaskStatus }
+							handleDeleteTask={ handleDeleteTask }
+						/>
 					)
 				}
 			</Box>
