@@ -1,16 +1,26 @@
 import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import { Button, Checkbox, FormControl, Input, Sheet, Table } from '@mui/joy';
-import { Box } from '@mui/material';
 import {
+	Button,
+	Checkbox,
+	FormControl,
+	Input,
+	Option,
+	Select,
+	Sheet,
+	Table,
+} from '@mui/joy';
+import { Box } from '@mui/material';
+import React, {
 	ChangeEvent,
 	FormEvent,
 	ReactElement,
 	useCallback,
+	useMemo,
 	useState,
 } from 'react';
 import { v4 as uuid } from 'uuid';
 import { content } from './content';
-import { Task } from './types';
+import { Task, TaskFilter } from './types';
 
 type TodoListPageProps = {};
 
@@ -18,6 +28,7 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 	const [input, setInput] = useState<string>('');
 	const [checked, setChecked] = useState<boolean>(false);
 	const [tasks, setTasks] = useState<Task[]>([]);
+	const [filter, setFilter] = useState<TaskFilter>(TaskFilter.all);
 	
 	const handleInputChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
 		setInput(e.target.value);
@@ -29,6 +40,26 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 		},
 		[],
 	);
+	
+	const filteredTasks = useMemo(
+		() => {
+			if (filter === TaskFilter.finished) {
+				return tasks.filter(task => task.finished);
+			}
+			if (filter === TaskFilter.inProgress) {
+				return tasks.filter(task => !task.finished);
+			}
+			return tasks;
+		},
+		[tasks, filter],
+	);
+	
+	const handleFilterTasks = (
+		_: React.SyntheticEvent | null,
+		newValue: string | null,
+	) => {
+		setFilter(newValue as TaskFilter);
+	};
 	
 	const handleSubmit = useCallback(
 		(e: FormEvent<HTMLFormElement>) => {
@@ -58,7 +89,7 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 				setTasks([...tasksWithoutEdited, task]);
 			}
 		},
-		[tasks]
+		[tasks],
 	);
 	
 	const handleDeleteTask = useCallback(
@@ -69,8 +100,8 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 				setTasks([...tasksWithoutEdited]);
 			}
 		},
-		[tasks]
-	)
+		[tasks],
+	);
 	
 	return (
 		<ContentLayout
@@ -147,14 +178,27 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 						} }
 						type={ 'submit' }
 						size='sm'
-						disabled={input.length <= 0}
+						disabled={ input.length <= 0 }
 					>
 						Создать задачу
 					</Button>
+					<Select
+						onChange={ handleFilterTasks }
+						sx={ {
+							flexShrink: '4',
+							maxWidth: '300px',
+							width: '100%',
+						} }
+						value={ filter }
+					>
+						<Option value={ TaskFilter.all }>Все</Option>
+						<Option value={ TaskFilter.inProgress }>В процессе</Option>
+						<Option value={ TaskFilter.finished }>Завершенные</Option>
+					</Select>
 				</Box>
 				
 				{
-					tasks && tasks.length > 0 && (
+					filteredTasks && filteredTasks.length > 0 && (
 						<Sheet>
 							<Table
 								borderAxis='both'
@@ -191,7 +235,7 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 								</thead>
 								<tbody>
 								{
-									tasks.map((task, index) => (
+									filteredTasks.map((task, index) => (
 										<tr
 											key={ task.id }
 											style={ {
@@ -232,10 +276,10 @@ export function TodoListPage({}: TodoListPageProps): ReactElement {
 														width: '100%',
 													} }
 													size='sm'
-													disabled={!task.id}
+													disabled={ !task.id }
 													variant='plain'
 													color='danger'
-													onClick={() => handleDeleteTask(task.id)}
+													onClick={ () => handleDeleteTask(task.id) }
 												>
 													Удалить
 												</Button>
