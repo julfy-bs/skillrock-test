@@ -16,9 +16,7 @@ export function ChunkArrayComponent({
   isDataReady,
 }: ChunkArrayComponentProps): ReactElement {
   const elements: number[][] | number[] = useMemo(() => {
-    const result: number[][] | number[] = chunkArray(array, size);
-    console.log(result);
-    return result;
+    return chunkArray(array, size);
   }, [array, size]);
 
   return (
