@@ -47,6 +47,6 @@ export const router = createBrowserRouter(
 		}
 	],
 	{
-		basename: '/'
+		basename: '/skillrock-test/'
 	},
 );
