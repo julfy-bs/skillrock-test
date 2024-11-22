@@ -12,9 +12,7 @@ import {
 } from 'react';
 import { content } from './content';
 
-type ChunkArrayPageProps = {};
-
-export function ChunkArrayPage({}: ChunkArrayPageProps): ReactElement {
+export function ChunkArrayPage(): ReactElement {
 	const [size, setSize] = useState<string>('');
 	const [length, setLength] = useState<string>('');
 	const [array, setArray] = useState<null | number[]>(null);
