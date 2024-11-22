@@ -1,9 +1,9 @@
-import { ModeSwitcher } from '@/widgets/mode-switcher/ModeSwitcher.tsx';
-import { NavBar } from '@/widgets/navbar/NavBar.tsx';
 import LogoDevIcon from '@mui/icons-material/LogoDev';
 import { Box, Grid } from '@mui/joy';
 import { ReactElement } from 'react';
 import { Outlet } from 'react-router-dom';
+import { ModeSwitcher } from '../../widgets/mode-switcher/ModeSwitcher.tsx';
+import { NavBar } from '../../widgets/navbar/NavBar.tsx';
 
 export function DefaultLayout(): ReactElement {
 	

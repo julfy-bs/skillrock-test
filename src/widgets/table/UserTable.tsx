@@ -1,7 +1,7 @@
-import { User } from '@/shared/types/user';
 import { Avatar, Box, Table } from '@mui/joy';
 import { Typography } from '@mui/material';
 import { ReactElement } from 'react';
+import { User } from '../../shared/types/user.ts';
 
 type UserCardProps = {
 	users: User[]

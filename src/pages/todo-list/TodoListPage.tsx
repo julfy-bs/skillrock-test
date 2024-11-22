@@ -1,7 +1,3 @@
-import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import { Task, TaskFilter } from '@/shared/types/task';
-import { TodoForm } from '@/widgets/todo-form/TodoForm.tsx';
-import { TodoTable } from '@/widgets/table/TodoTable.tsx';
 import { Box } from '@mui/material';
 import React, {
 	ChangeEvent,
@@ -12,6 +8,10 @@ import React, {
 	useState,
 } from 'react';
 import { v4 as uuid } from 'uuid';
+import { ContentLayout } from '../../app/layouts/ContentLayout.tsx';
+import { Task, TaskFilter } from '../../shared/types/task.ts';
+import { TodoTable } from '../../widgets/table/TodoTable.tsx';
+import { TodoForm } from '../../widgets/todo-form/TodoForm.tsx';
 import { content } from './content';
 
 export function TodoListPage(): ReactElement {

@@ -1,4 +1,4 @@
-import { Api } from '@/app/api';
+import { Api } from '../index.ts';
 import {
 	IUsersApi,
 	usersBaseResults,

@@ -1,4 +1,3 @@
-import { TaskFilter } from '@/shared/types/task';
 import {
 	Box,
 	Button,
@@ -9,6 +8,7 @@ import {
 	Select,
 } from '@mui/joy';
 import React, { ChangeEvent, FormEvent, ReactElement } from 'react';
+import { TaskFilter } from '../../shared/types/task.ts';
 
 type TodoFormProps = {
 	handleSubmit: (e: FormEvent<HTMLFormElement>) => void;

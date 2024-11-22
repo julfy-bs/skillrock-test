@@ -1,4 +1,4 @@
-import { Picture } from '@/shared/types/picture.ts';
+import { Picture } from '../../../shared/types/picture.ts';
 
 export const picturesBaseUrl = `${ import.meta.env.VITE_API_PICTURES_URL }`;
 

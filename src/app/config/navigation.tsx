@@ -1,10 +1,10 @@
-import { ROUTES } from '@/app/router/config.ts';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import DescriptionIcon from '@mui/icons-material/Description';
 import ImageIcon from '@mui/icons-material/Image';
 import LayersIcon from '@mui/icons-material/Layers';
 import PersonIcon from '@mui/icons-material/Person';
 import { ReactNode } from 'react';
+import { ROUTES } from '../router/config.ts';
 
 type NavigationElement = {
 	route: string;

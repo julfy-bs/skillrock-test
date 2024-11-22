@@ -1,12 +1,12 @@
-import { DefaultLayout } from '@/app/layouts/DefaultLayout.tsx';
-import { ROUTES } from '@/app/router/config.ts';
-import { ChunkArrayPage } from '@/pages/chunk/ChunkArrayPage.tsx';
-import { FizzBuzzPage } from '@/pages/fizzbuzz/FizzBuzzPage.tsx';
-import { PalindromePage } from '@/pages/palindrome/PalindromePage.tsx';
-import { PicturesPage } from '@/pages/pictures/PicturesPage.tsx';
-import { TodoListPage } from '@/pages/todo-list/TodoListPage.tsx';
-import { UsersPage } from '@/pages/users/UsersPage.tsx';
 import { createBrowserRouter } from 'react-router-dom';
+import { ChunkArrayPage } from '../../pages/chunk/ChunkArrayPage.tsx';
+import { FizzBuzzPage } from '../../pages/fizzbuzz/FizzBuzzPage.tsx';
+import { PalindromePage } from '../../pages/palindrome/PalindromePage.tsx';
+import { PicturesPage } from '../../pages/pictures/PicturesPage.tsx';
+import { TodoListPage } from '../../pages/todo-list/TodoListPage.tsx';
+import { UsersPage } from '../../pages/users/UsersPage.tsx';
+import { DefaultLayout } from '../layouts/DefaultLayout.tsx';
+import { ROUTES } from './config.ts';
 
 export const router = createBrowserRouter(
 	[

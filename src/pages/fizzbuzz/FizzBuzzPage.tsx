@@ -1,9 +1,11 @@
-import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import { FizzBuzzComponent } from '@/features/fizz-buzz/FizzBuzzComponent.tsx';
-import { content } from '@/pages/fizzbuzz/content.ts';
 import { FormControl, Input } from '@mui/joy';
 import { Box } from '@mui/material';
 import { ChangeEvent, ReactElement, useCallback, useState } from 'react';
+import { ContentLayout } from '../../app/layouts/ContentLayout.tsx';
+import {
+	FizzBuzzComponent,
+} from '../../features/fizz-buzz/FizzBuzzComponent.tsx';
+import { content } from './content.ts';
 
 export function FizzBuzzPage(): ReactElement {
 	const [input, setInput] = useState<string>('');

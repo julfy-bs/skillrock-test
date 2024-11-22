@@ -1,7 +1,7 @@
-import { fizzBuzz } from "@/features/fizz-buzz/fizzBuzz.ts";
-import { Chip, Stack } from "@mui/joy";
-import { ReactElement, useMemo } from "react";
-import { v4 as uuid } from "uuid";
+import { Chip, Stack } from '@mui/joy';
+import { ReactElement, useMemo } from 'react';
+import { v4 as uuid } from 'uuid';
+import { fizzBuzz } from './fizzBuzz.ts';
 
 type FizzBuzzComponentProps = {
   stringifiedNumber: string;
@@ -12,7 +12,7 @@ export function FizzBuzzComponent({
   stringifiedNumber,
   isDirty,
 }: FizzBuzzComponentProps): ReactElement {
-  const elements = useMemo(() => {
+  const elements: string[] = useMemo(() => {
     return fizzBuzz(+stringifiedNumber);
   }, [stringifiedNumber]);
 
@@ -28,7 +28,7 @@ export function FizzBuzzComponent({
           }}
         >
           {elements
-            .map((item) => (
+            .map((item: string) => (
               <Chip
                 component={"span"}
                 key={uuid()}

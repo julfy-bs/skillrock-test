@@ -1,6 +1,6 @@
-import { Task } from '@/shared/types/task.ts';
 import { Button, Checkbox, FormControl, Sheet, Table } from '@mui/joy';
 import { ReactElement } from 'react';
+import { Task } from '../../shared/types/task.ts';
 
 type TodoTableProps = {
 	tasks: Task[];

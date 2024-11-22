@@ -1,7 +1,3 @@
-import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import {
-	ChunkArrayComponent,
-} from '@/features/chunk-array/ChunkArrayComponent.tsx';
 import { Button, FormControl, Input } from '@mui/joy';
 import {
 	ChangeEvent,
@@ -10,6 +6,10 @@ import {
 	useMemo,
 	useState,
 } from 'react';
+import { ContentLayout } from '../../app/layouts/ContentLayout.tsx';
+import {
+	ChunkArrayComponent,
+} from '../../features/chunk-array/ChunkArrayComponent.tsx';
 import { content } from './content';
 
 export function ChunkArrayPage(): ReactElement {

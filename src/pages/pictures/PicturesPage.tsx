@@ -1,10 +1,10 @@
-import { picturesAPI } from '@/app/api/pictures';
-import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import { Picture } from '@/shared/types/picture.ts';
-import { Slider } from '@/widgets/slider/Slider.tsx';
 import { CircularProgress } from '@mui/joy';
 import { Typography } from '@mui/material';
 import { ReactElement, useCallback, useEffect, useRef, useState } from 'react';
+import { picturesAPI } from '../../app/api/pictures';
+import { ContentLayout } from '../../app/layouts/ContentLayout.tsx';
+import { Picture } from '../../shared/types/picture.ts';
+import { Slider } from '../../widgets/slider/Slider.tsx';
 import { content } from './content';
 
 export function PicturesPage(): ReactElement {

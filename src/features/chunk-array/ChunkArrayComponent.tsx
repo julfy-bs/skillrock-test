@@ -1,8 +1,8 @@
-import { chunkArray } from '@/features/chunk-array/chunkArray.ts';
 import { Chip, Stack } from '@mui/joy';
 import { Typography } from '@mui/material';
 import { ReactElement, useMemo } from 'react';
 import { v4 as uuid } from 'uuid';
+import { chunkArray } from './chunkArray.ts';
 
 type ChunkArrayComponentProps = {
 	array: number[];

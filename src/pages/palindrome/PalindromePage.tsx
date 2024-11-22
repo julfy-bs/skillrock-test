@@ -1,14 +1,12 @@
-import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import {
-	PalindromeComponent,
-} from '@/features/palindrome/PalindromeComponent.tsx';
-import { content } from '@/pages/palindrome/content.ts';
 import { FormControl, Input } from '@mui/joy';
 import { ChangeEvent, ReactElement, useCallback, useState } from 'react';
+import { ContentLayout } from '../../app/layouts/ContentLayout.tsx';
+import {
+	PalindromeComponent,
+} from '../../features/palindrome/PalindromeComponent.tsx';
+import { content } from './content.ts';
 
-type PalindromePageProps = {};
-
-export function PalindromePage({}: PalindromePageProps): ReactElement {
+export function PalindromePage(): ReactElement {
 	const [input, setInput] = useState<string>('');
 	const [isDirty, setIsDirty] = useState<boolean>(false);
 	

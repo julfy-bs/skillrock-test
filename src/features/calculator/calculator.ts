@@ -1,4 +1,4 @@
-import { ICalculator } from '@/features/calculator/types.ts';
+import { ICalculator } from './types.ts';
 
 export class Calculator implements ICalculator {
 	

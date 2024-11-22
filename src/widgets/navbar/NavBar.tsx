@@ -1,4 +1,3 @@
-import { navigation } from '@/app/config/navigation.tsx';
 import Menu from '@mui/icons-material/Menu';
 import {
 	Box,
@@ -13,6 +12,7 @@ import { Typography } from '@mui/material';
 import { ReactElement, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { v4 as uuid } from 'uuid';
+import { navigation } from '../../app/config/navigation.tsx';
 
 export function NavBar(): ReactElement {
 	const [open, setOpen] = useState(false);

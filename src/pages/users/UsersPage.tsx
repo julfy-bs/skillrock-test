@@ -1,10 +1,10 @@
-import { usersAPI } from '@/app/api/users/users.ts';
-import { ContentLayout } from '@/app/layouts/ContentLayout.tsx';
-import { User } from '@/shared/types/user.ts';
-import { UserTable } from '@/widgets/table/UserTable.tsx';
 import { CircularProgress } from '@mui/joy';
 import { Typography } from '@mui/material';
 import { ReactElement, Suspense, useEffect, useState } from 'react';
+import { usersAPI } from '../../app/api/users/users.ts';
+import { ContentLayout } from '../../app/layouts/ContentLayout.tsx';
+import { User } from '../../shared/types/user.ts';
+import { UserTable } from '../../widgets/table/UserTable.tsx';
 import { content } from './content';
 
 type UsersPageProps = {}

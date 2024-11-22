@@ -1,4 +1,4 @@
-import { User } from '@/shared/types/user.ts';
+import { User } from '../../../shared/types/user.ts';
 
 export const usersBaseUrl = `${ import.meta.env.VITE_API_URL }?key=${ import.meta.env.VITE_API_KEY }`;
 

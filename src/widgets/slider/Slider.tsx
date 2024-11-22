@@ -1,9 +1,9 @@
-import { Picture } from '@/shared/types/picture.ts';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { AspectRatio, Box, Button, Card } from '@mui/joy';
 import { forwardRef, ReactElement } from 'react';
 import { v4 as uuid } from 'uuid';
+import { Picture } from '../../shared/types/picture.ts';
 
 type SliderProps = {
 	scrollRight: () => void;

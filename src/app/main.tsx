@@ -1,10 +1,10 @@
-import { Calculator } from '@/features/calculator/calculator.ts';
-import { Book } from '@/features/library/book.ts';
-import { Library } from '@/features/library/library.ts';
 import { CssBaseline, CssVarsProvider, extendTheme } from '@mui/joy';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
+import { Calculator } from '../features/calculator/calculator.ts';
+import { Book } from '../features/library/book.ts';
+import { Library } from '../features/library/library.ts';
 import { router } from './router/router';
 import './main.css';
 
